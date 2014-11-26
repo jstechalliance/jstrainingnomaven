@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jd="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+	http://www.springframework.org/schema/jdbc
+	http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+
+	<context:annotation-config />
+	
+	<!--                    DatabaseSource Stuff : Start                    -->
+	<bean id="propertyConfigurer"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+        p:location="classpath:jdbc.properties">
+	</bean>
+ 
+    <bean id="basicDataSource"
+        class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
+        p:driverClassName="${jdbc.driverClassName}"
+        p:url="${jdbc.databaseurl}" 
+        p:username="${jdbc.username}"
+        p:password="${jdbc.password}">
+    </bean>
+	<!--                    DatabaseSource Stuff : Stop                    -->
+	
+	<!-- DAO Implementation : Start -->
+	
+	<bean id="collegeDAO" class="com.js.dao.impl.CollegeDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+	</bean>
+	<bean id="courseDAO" class="com.js.dao.impl.CourseDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+	</bean>
+	<bean id="employeeDAO" class="com.js.dao.impl.EmployeeDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+	</bean>
+	<bean id="enquiryDAO" class="com.js.dao.impl.EnquiryDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+		<property name="referanceDAO" ref="referanceDAO"></property>
+		<property name="studentSMSDAO" ref="studentSMSDAO"></property>
+	</bean>
+	<bean id="loginDAO" class="com.js.dao.impl.LoginDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+	</bean>
+	<bean id="paymentDAO" class="com.js.dao.impl.PaymentDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+		<property name="employeeDAO" ref="employeeDAO"></property>
+		<property name="studentSMSDAO" ref="studentSMSDAO"></property>
+	</bean>
+	<bean id="permissionDAO" class="com.js.dao.impl.PermissionDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+	</bean>
+	<bean id="referanceDAO" class="com.js.dao.impl.ReferanceDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+	</bean>
+	<bean id="registrationRemarkDAO" class="com.js.dao.impl.RegistrationRemarkDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+	</bean>
+	<bean id="studentSMSDAO" class="com.js.dao.impl.StudentSMSDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+	</bean>
+	<bean id="trainingRegistrationDAO" class="com.js.dao.impl.TrainingRegistrationDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+		<property name="studentSMSDAO" ref="studentSMSDAO"></property>
+		<property name="employeeDAO" ref="employeeDAO"></property>
+	</bean>
+	<bean id="webEnquiryDAO" class="com.js.dao.impl.WebEnquiryDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+	</bean>
+	<!-- DAO Implementation : Stop -->
+	
+	<!-- Service Implementation : Start -->
+	
+	<bean id="collegeService" class="com.js.service.impl.CollegeServiceImpl" scope="prototype">
+	    <property name="collegeDAO" ref="collegeDAO"></property>
+	</bean>
+	<bean id="courseService" class="com.js.service.impl.CourseServiceImpl" scope="prototype">
+	    <property name="courseDAO" ref="courseDAO"></property>
+	</bean>
+	<bean id="employeeService" class="com.js.service.impl.EmployeeServiceImpl" scope="prototype">
+	    <property name="employeeDAO" ref="employeeDAO"></property>
+	</bean>
+	<bean id="enquiryService" class="com.js.service.impl.EnquiryServiceImpl" scope="prototype">
+	    <property name="enquiryDAO" ref="enquiryDAO"></property>
+	</bean>
+	<bean id="loginService" class="com.js.service.impl.LoginServiceImpl" scope="prototype">
+	    <property name="loginDAO" ref="loginDAO"></property>
+	</bean>
+	<bean id="paymentService" class="com.js.service.impl.PaymentServiceImpl" scope="prototype">
+	    <property name="paymentDAO" ref="paymentDAO"></property>
+	</bean>
+	<bean id="permissionService" class="com.js.service.impl.PermissionServiceImpl" scope="prototype">
+		<property name="permissionDAO" ref="permissionDAO"></property>
+	</bean>
+	<bean id="registrationRemarkService" class="com.js.service.impl.RegistrationRemarkServiceImpl" scope="prototype">
+		<property name="registrationRemarkDAO" ref="registrationRemarkDAO"></property>
+	</bean>
+	<bean id="registrationService" class="com.js.service.impl.RegistrationServiceImpl" scope="prototype">
+		<property name="trainingRegistrationDAO" ref="trainingRegistrationDAO"></property>
+	</bean>
+	<bean id="studentSMSService" class="com.js.service.impl.StudentSMSServiceImpl" scope="prototype">
+		<property name="studentSMSDAO" ref="studentSMSDAO"></property>
+	</bean>
+	<bean id="trainingRegistrationService" class="com.js.service.impl.TrainingRegistrationServiceImpl" scope="prototype">
+		<property name="trainingRegistrationDAO" ref="trainingRegistrationDAO"></property>
+	</bean>
+	<bean id="webEnquiryService" class="com.js.service.impl.WebEnquiryServiceImpl" scope="prototype">
+		<property name="webEnquiryDAO" ref="webEnquiryDAO"></property>
+	</bean>
+	
+	
+	<!-- Service Implementation : Stop -->
+	
+	<!-- Controller Implementation : Start -->
+	
+	<bean id="enquiryController" class="com.js.controller.EnquiryController" scope="prototype">
+	    <property name="enquiryService" ref="enquiryService"></property>
+	</bean>
+	<bean id="loginController" class="com.js.controller.LoginController" scope="prototype">
+	    <property name="loginService" ref="loginService"></property>
+	    <property name="permissionService" ref="permissionService"></property>
+	    <property name="employeeService" ref="employeeService"></property>
+	</bean>
+	<bean id="paymentController" class="com.js.controller.PaymentController" scope="prototype">
+	    <property name="paymentService" ref="paymentService"></property>
+	</bean>
+	<bean id="registrationController" class="com.js.controller.RegistrationController" scope="prototype">
+	    <property name="registrationService" ref="registrationService"></property>
+	    <property name="enquiryService" ref="enquiryService"></property>
+	    <property name="trainingRegistrationService" ref="trainingRegistrationService"></property>
+	</bean>
+	<bean id="registrationRemarkController" class="com.js.controller.RegistrationRemarkController" scope="prototype">
+	    <property name="registrationRemarkService" ref="registrationRemarkService"></property>
+	</bean>
+	<bean id="studentSMSController" class="com.js.controller.StudentSMSController" scope="prototype">
+	    <property name="studentSMSService" ref="studentSMSService"></property>
+	</bean>
+	<bean id="webEnquiryController" class="com.js.controller.WebEnquiryController" scope="prototype">
+	    <property name="webEnquiryService" ref="webEnquiryService"></property>
+	</bean>
+
+	<!-- Controller Implementation : Stop -->
+	
+	
+</beans>
