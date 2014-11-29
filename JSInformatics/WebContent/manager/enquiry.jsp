@@ -12,8 +12,8 @@
 <%@include file="managerheader.jsp"%>
 <%@include file="../common/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<link href="../templatemo_style.css" rel="stylesheet" type="text/css" />
-<link href="../css/jquery.ennui.contentslider.css" rel="stylesheet"
+<link href="../css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link href="..../resources/css/jquery.ennui.contentslider.css" rel="stylesheet"
 	type="text/css" media="screen,projection" />
 <script type="text/javascript" src="../js/enquiry.js"></script>
 <script type="text/javascript" src="../js/datepickr.js"></script>

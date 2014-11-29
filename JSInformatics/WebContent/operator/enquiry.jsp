@@ -16,7 +16,7 @@
 <%@include file="operatortopheader.jsp"%>
 <%@include file="../common/header.jsp"%>
 
-<link href="../resources/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link href="../css/templatemo_style.css" rel="stylesheet" type="text/css" />
 <link href="../resources/css/jquery.ennui.contentslider.css" rel="stylesheet"
 	type="text/css" media="screen,projection" />
 <script type="text/javascript" src="../resources/js/enquiry.js"></script>

@@ -14,8 +14,8 @@
 	content="glossy box, web design, colorful background, free templates, website templates, CSS, HTML" />
 <meta name="description"
 	content="Glossy Box | free website template with a colorful background" />
-<link href="../templatemo_style.css" rel="stylesheet" type="text/css" />
-<link href="../css/jquery.ennui.contentslider.css" rel="stylesheet"
+<link href="../resources/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link href="../resources/css/jquery.ennui.contentslider.css" rel="stylesheet"
 	type="text/css" media="screen,projection" />
 
 
