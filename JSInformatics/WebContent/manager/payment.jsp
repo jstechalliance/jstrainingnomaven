@@ -30,21 +30,21 @@
 	content="glossy box, web design, colorful background, free templates, website templates, CSS, HTML" />
 <meta name="description"
 	content="Glossy Box | free website template with a colorful background" />
-<link href="../templatemo_style.css" rel="stylesheet" type="text/css" />
-<link href="../css/jquery.ennui.contentslider.css" rel="stylesheet"
+<link href="../resources/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link href="../resources/css/jquery.ennui.contentslider.css" rel="stylesheet"
 	type="text/css" media="screen,projection" />
-<script type="text/javascript" src="../js/enquiry.js"></script>
-<script type="text/javascript" src="../js/datepickr.js"></script>
+<script type="text/javascript" src="../resources/js/enquiry.js"></script>
+<script type="text/javascript" src="../resources/js/datepickr.js"></script>
 <meta name="description"
 	content="A lightweight, customizable jQuery timepicker plugin inspired by Google Calendar. Add a user-friendly timepicker dropdown to your app in minutes." />
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="../js/searchinq.js"></script>
-<script src="../js/payment.js"></script>
-<script type="text/javascript" src="../js/jquery.timepicker.js"></script>
+<script src="../resources/js/searchinq.js"></script>
+<script src="../resources/js/payment.js"></script>
+<script type="text/javascript" src="../resources/js/jquery.timepicker.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="../js/jquery.timepicker.css" />
-<script type="text/javascript" src="../js/jquery.validate.min.js"></script>
+	href="../resources/js/jquery.timepicker.css" />
+<script type="text/javascript" src="../resources/js/jquery.validate.min.js"></script>
 
 
 
@@ -245,15 +245,15 @@
 				<!-- end of site_title -->
 
 				<ul id="social_box">
-					<li><a href="#"><img src="../images/facebook.png"
+					<li><a href="#"><img src="../resources/images/facebook.png"
 							alt="facebook" /></a></li>
-					<li><a href="#"><img src="../images/twitter.png"
+					<li><a href="#"><img src="../resources/images/twitter.png"
 							alt="twitter" /></a></li>
-					<li><a href="#"><img src="../images/linkedin.png"
+					<li><a href="#"><img src="../resources/images/linkedin.png"
 							alt="linkin" /></a></li>
-					<li><a href="#"><img src="../images/technorati.png"
+					<li><a href="#"><img src="../resources/images/technorati.png"
 							alt="technorati" /></a></li>
-					<li><a href="#"><img src="../images/myspace.png"
+					<li><a href="#"><img src="../resources/images/myspace.png"
 							alt="myspace" /></a></li>
 				</ul>
 

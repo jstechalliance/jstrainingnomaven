@@ -31,15 +31,15 @@
 				<!-- end of site_title -->
 
 				<ul id="social_box">
-					<li><a href="#"><img src="../images/facebook.png"
+					<li><a href="#"><img src="../resources/images/facebook.png"
 							alt="facebook" /></a></li>
-					<li><a href="#"><img src="../images/twitter.png"
+					<li><a href="#"><img src="../resources/images/twitter.png"
 							alt="twitter" /></a></li>
-					<li><a href="#"><img src="../images/linkedin.png"
+					<li><a href="#"><img src="../resources/images/linkedin.png"
 							alt="linkin" /></a></li>
-					<li><a href="#"><img src="../images/technorati.png"
+					<li><a href="#"><img src="../resources/images/technorati.png"
 							alt="technorati" /></a></li>
-					<li><a href="#"><img src="../images/myspace.png"
+					<li><a href="#"><img src="../resources/images/myspace.png"
 							alt="myspace" /></a></li>
 				</ul>
 

@@ -2,10 +2,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="resources/js/jquery-1.9.0.js"></script>
-<script src="resources/js/myalert/jquery.ui.draggable.js" type="text/javascript"></script>
-<script src="resources/js/myalert/jquery.alerts.js" type="text/javascript"></script>
-<link href="resources/js/myalert/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="../resources/js/jquery-1.9.0.js"></script>
+<script src="../resources/js/myalert/jquery.ui.draggable.js" type="text/javascript"></script>
+<script src="../resources/js/myalert/jquery.alerts.js" type="text/javascript"></script>
+<link href="../resources/js/myalert/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
 <script>
 	function printDiv(divId) {
 		window.frames["print_frame"].document.body.innerHTML = document
