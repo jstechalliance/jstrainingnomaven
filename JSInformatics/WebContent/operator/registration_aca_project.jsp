@@ -432,10 +432,10 @@
 		%>
 
 		<div class="leftContent">
-			<jsp:useBean id="controller"
-				class="com.js.controller.RegistrationController"></jsp:useBean>
-
+			
 			<%
+				RegistrationController controller = (RegistrationController)JSIBeanFactory.getBean(RegistrationController.class);
+				
 				if(enquiryList==null){
 							
 										enquiryList=null;

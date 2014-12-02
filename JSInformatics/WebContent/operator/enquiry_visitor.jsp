@@ -213,7 +213,7 @@
 	CourseService courseService = JSIBeanFactory.getBean(CourseServiceImpl.class);
 	CollegeService collegeService = JSIBeanFactory.getBean(CollegeServiceImpl.class);
 	EnquiryService enquiryService = JSIBeanFactory.getBean(EnquiryServiceImpl.class);
-	
+	EnquiryController enquiryController = JSIBeanFactory.getBean(EnquiryController.class);
 
 	List <String>statusList=enquiryService.getAllEnquiredStatus((String)request.getSession(false).getAttribute("BRANCHID"));
 %>
@@ -411,7 +411,7 @@
 				if(visitorEnquiryDTOs==null){
 				                			//visitorEnquiryDTOs =new ArrayList<NewVisitorEnquiryDTO>();                			
 									
-									List <List<NewVisitorEnquiryDTO>>allVisitorList=new EnquiryController().getAllVisitorFollowUp(request);
+									List <List<NewVisitorEnquiryDTO>>allVisitorList=enquiryController.getAllVisitorFollowUp(request);
 				                			List <NewVisitorEnquiryDTO>activeVisitoryList=allVisitorList.get(0);
 				                			List <NewVisitorEnquiryDTO>passiveVisitoryList=allVisitorList.get(1);               			
 									

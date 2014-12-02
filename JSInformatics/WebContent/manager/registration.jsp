@@ -14,19 +14,19 @@
 <%@include file="../common/header.jsp"%>
 
 
-<link href="../templatemo_style.css" rel="stylesheet" type="text/css" />
-<link href="../css/jquery.ennui.contentslider.css" rel="stylesheet"
+<link href="../resources/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link href="../resources/css/jquery.ennui.contentslider.css" rel="stylesheet"
 	type="text/css" media="screen,projection" />
-<script type="text/javascript" src="../js/enquiry.js"></script>
-<script type="text/javascript" src="../js/datepickr.js"></script>
+<script type="text/javascript" src="../resources/js/enquiry.js"></script>
+<script type="text/javascript" src="../resources/js/datepickr.js"></script>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="../js/jquery-1.9.0.js"></script>
-<script src="../js/registration.js"></script>
-<script type="text/javascript" src="../js/jquery.timepicker.js"></script>
+<script src="../resources/js/jquery-1.9.0.js"></script>
+<script src="../resources/js/registration.js"></script>
+<script type="text/javascript" src="../resources/js/jquery.timepicker.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="../js/jquery.timepicker.css" />
-<script type="text/javascript" src="../js/jquery.validate.min.js"></script>
+	href="../resources/js/jquery.timepicker.css" />
+<script type="text/javascript" src="../resources/js/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
 	$(document)
