@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2014-12-18T20:32:33 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tree-template" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<field name="firstParagraph" class="java.lang.String"/>
+	<field name="secondParagraph" class="java.lang.String"/>
+	<field name="courseName" class="java.lang.String"/>
+	<field name="thirdParagraph" class="java.lang.String"/>
+	<field name="fourthParagraph" class="java.lang.String"/>
+	<field name="authorizedSignatory" class="java.lang.String"/>
+	<field name="issueDate" class="java.lang.String"/>
+	<field name="registrationNo" class="java.lang.String"/>
+	
+	<title>
+		<band height="127" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="554" height="126" />
+				<textField>
+					<reportElement x="20" y="6" width="300" height="22" />
+					<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{registrationNo}]]></textFieldExpression>
+				</textField>
+				
+				
+				<staticText>
+					<reportElement x="210" y="48" width="170" height="30" />
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Training Certificate]]></text>
+				</staticText>
+				
+				
+				
+				<image hAlign="Right" onErrorType="Blank" hyperlinkType="None"> 
+					<reportElement x="380" y="0" width="174" height="126" />
+					<imageExpression class="java.lang.String">
+						<![CDATA["jslogo.jpg"]]>
+					</imageExpression>
+
+				</image>
+				
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="600" splitType="Stretch">
+			
+			<staticText>
+				<reportElement x="180" y="30" width="240" height="20" />
+				<textElement>
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Whom So Ever It May Concern]]></text>
+			</staticText>
+			
+			<textField>
+				<reportElement x="20" y="80" width="520" height="90" />
+				<textElement textAlignment="Justified" lineSpacing="1_1_2">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firstParagraph}]]></textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement x="20" y="180" width="520" height="90" />
+				<textElement textAlignment="Justified" lineSpacing="1_1_2">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{secondParagraph}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="250" width="520" height="50" />
+					<textElement textAlignment="Justified" lineSpacing="1_1_2">
+					<font fontName="Times New Roman" size="14"/>
+					</textElement>
+				<text><![CDATA[Training On]]></text>
+			</staticText>
+			
+			<textField>
+				<reportElement x="220" y="290" width="150" height="20" />
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{courseName}]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="20" y="310" width="520" height="60" />
+				<textElement textAlignment="Justified" lineSpacing="1_1_2">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{thirdParagraph}]]></textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement x="20" y="380" width="520" height="20" />
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fourthParagraph}]]></textFieldExpression>
+			</textField>
+			
+			<frame>
+				<reportElement x="20" y="430" width="330" height="170" />
+				<staticText>
+					<reportElement x="10" y="10" width="210" height="30" />
+					<textElement>
+						<font fontName="Times New Roman" size="14"/>
+					</textElement>
+					<text><![CDATA[For J S INFORMATICS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="80" width="270" height="40" />
+					<textElement>
+						<font fontName="Times New Roman" size="14"/>
+					</textElement>
+					<text><![CDATA[
+Authorized Signatory]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="10" y="80" width="270" height="40" />
+					<textElement>
+						<font fontName="Times New Roman" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{authorizedSignatory}]]></textFieldExpression>
+				</textField>
+				
+				<textField>
+					<reportElement x="10" y="140" width="310" height="30" />
+					<textElement>
+						<font fontName="Times New Roman" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{issueDate}]]></textFieldExpression>
+				</textField>
+				
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="64" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="554" height="64" >
+					<property name="local_mesure_unitheight" value="pixel"/>
+				</reportElement>
+				<line>
+					<reportElement x="0" y="32" width="554" height="1" />
+				</line>
+				<staticText>
+					<reportElement x="0" y="40" width="554" height="22" />
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" size="9"/>
+					</textElement>
+					<text><![CDATA[Head office: #131 B, 1st floor 18 south tukoganj, next to hotel Crown Palace, Trade Center, Indore-452001. Tel: 0731-4263751]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>

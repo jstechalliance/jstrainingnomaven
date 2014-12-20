@@ -1391,6 +1391,7 @@
 											disabled="disabled" style="width: 160px;">
 												<option value="Fresh">Fresh</option>
 												<option value="Under Process">Under Process</option>
+												<option value="Joined">Joined</option>
 												<option value="Complited">Completed</option>
 												<option value="Not Intrested">Not Interested</option>
 										</select></td>

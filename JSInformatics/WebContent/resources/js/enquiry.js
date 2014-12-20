@@ -129,7 +129,6 @@
 		}				
 	}
 	function academic_project_enquiry_qualification_other1(){
-		alert("sdfsdf");
 		var qualification=document.getElementById("id_academic_project_enquiry_qualification");
 		var foo = document.getElementById("id_academic_project_enquiry_qualification_other_div");		
 		if(qualification.value=="Other"){

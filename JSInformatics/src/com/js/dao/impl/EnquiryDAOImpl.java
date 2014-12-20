@@ -809,8 +809,7 @@ public class EnquiryDAOImpl implements EnquiryDAO{
 		return ret;
 	}
 
-	public String updateAcademicProjectEnquiry(
-			NewAcademicProjectEnquiryDTO newEnquiry) throws Exception {
+	public String updateAcademicProjectEnquiry(NewAcademicProjectEnquiryDTO newEnquiry) throws Exception {
 		String ret = "error";
 		Connection con = null;
 		try {
@@ -818,15 +817,11 @@ public class EnquiryDAOImpl implements EnquiryDAO{
 
 			Statement st = con.createStatement();
 
-			if (newEnquiry.getAcademic_project_enquiry_qualification()
-					.equalsIgnoreCase("other")) {
-				newEnquiry.setAcademic_project_enquiry_qualification(newEnquiry
-						.getAcademic_project_enquiry_qualification_other());
+			if (newEnquiry.getAcademic_project_enquiry_qualification().equalsIgnoreCase("other")) {
+				newEnquiry.setAcademic_project_enquiry_qualification(newEnquiry.getAcademic_project_enquiry_qualification_other());
 			}
-			if (newEnquiry.getAcademic_project_enquiry_college()
-					.equalsIgnoreCase("other")) {
-				newEnquiry.setAcademic_project_enquiry_college(newEnquiry
-						.getAcademic_project_enquiry_college_other());
+			if (newEnquiry.getAcademic_project_enquiry_college().equalsIgnoreCase("other")) {
+				newEnquiry.setAcademic_project_enquiry_college(newEnquiry	.getAcademic_project_enquiry_college_other());
 			}
 
 			con.setAutoCommit(false);
@@ -836,14 +831,10 @@ public class EnquiryDAOImpl implements EnquiryDAO{
 			int cno_i = c_no.lastIndexOf(",");
 			int cmail_i = e_id.lastIndexOf(",");
 			if (cno_i != -1) {
-				newEnquiry.setAcademic_project_enquiry_contact_no(newEnquiry
-						.getAcademic_project_enquiry_contact_no().substring(0,
-								cno_i));
+				newEnquiry.setAcademic_project_enquiry_contact_no(newEnquiry.getAcademic_project_enquiry_contact_no().substring(0,cno_i));
 			}
 			if (cmail_i != -1) {
-				newEnquiry.setAcademic_project_enquiry_email_id(newEnquiry
-						.getAcademic_project_enquiry_email_id().substring(0,
-								cmail_i));
+				newEnquiry.setAcademic_project_enquiry_email_id(newEnquiry.getAcademic_project_enquiry_email_id().substring(0,cmail_i));
 			}
 			// save new enquiry
 			st = con.createStatement();
@@ -866,39 +857,26 @@ public class EnquiryDAOImpl implements EnquiryDAO{
 			// save contact no
 
 			Statement tst = con.createStatement();
-			tst.executeUpdate("delete from tbl_contact where my_id='"
-					+ newEnquiry.getAcademic_project_enquiry_enquiry_id() + "'");
+			tst.executeUpdate("delete from tbl_contact where my_id='"+ newEnquiry.getAcademic_project_enquiry_enquiry_id() + "'");
 			tst.close();
 
 			st = con.createStatement();
-			st.executeUpdate("insert into tbl_contact (my_id,contact_no) values ('"
-					+ newEnquiry.getAcademic_project_enquiry_enquiry_id()
-					+ "','"
-					+ newEnquiry.getAcademic_project_enquiry_contact_no()
-					+ "')");
+			st.executeUpdate("insert into tbl_contact (my_id,contact_no) values ('"	+ newEnquiry.getAcademic_project_enquiry_enquiry_id()+ "','"+ newEnquiry.getAcademic_project_enquiry_contact_no()+ "')");
 			st.close();
 
 			// save email id
 			tst = con.createStatement();
-			tst.executeUpdate("delete from tbl_email where my_id='"
-					+ newEnquiry.getAcademic_project_enquiry_enquiry_id() + "'");
+			tst.executeUpdate("delete from tbl_email where my_id='"	+ newEnquiry.getAcademic_project_enquiry_enquiry_id() + "'");
 			tst.close();
 
 			st = con.createStatement();
-			st.executeUpdate("insert into tbl_email (my_id,email_id) values ('"
-					+ newEnquiry.getAcademic_project_enquiry_enquiry_id()
-					+ "','" + newEnquiry.getAcademic_project_enquiry_email_id()
-					+ "')");
+			st.executeUpdate("insert into tbl_email (my_id,email_id) values ('"	+ newEnquiry.getAcademic_project_enquiry_enquiry_id()+ "','" + newEnquiry.getAcademic_project_enquiry_email_id()+ "')");
 			st.close();
 
 			// save reference note
 
 			tst = con.createStatement();
-			tst.executeUpdate("delete from relation_with_reference where myid='"
-					+ newEnquiry.getAcademic_project_enquiry_enquiry_id()
-					+ "' and reference_id='"
-					+ newEnquiry.getAcademic_project_enquiry_referenceId()
-					+ "'");
+			tst.executeUpdate("delete from relation_with_reference where myid='"+ newEnquiry.getAcademic_project_enquiry_enquiry_id()+ "' and reference_id='"+ newEnquiry.getAcademic_project_enquiry_referenceId()	+ "'");
 			tst.close();
 
 			st = con.createStatement();
@@ -910,25 +888,27 @@ public class EnquiryDAOImpl implements EnquiryDAO{
 					+ newEnquiry.getAcademic_project_enquiry_referenceId()
 					+ "')");
 			st.close();
-			// save project
-			tst = con.createStatement();
-			tst.executeUpdate("delete from tbl_academic_project where enquiry_id='"
-					+ newEnquiry.getAcademic_project_enquiry_enquiry_id() + "'");
-			tst.close();
+			
+			System.out.println("Project Id : "+newEnquiry.getAcademic_project_enquiry_project_id());
 
-			st = con.createStatement();
-			String query = "insert into tbl_academic_project (enquiry_id,project_name,delivery_date,project_description) values ('"
-					+ newEnquiry.getAcademic_project_enquiry_enquiry_id()
-					+ "','"
-					+ newEnquiry.getAcademic_project_enquiry_project_name()
-					+ "','"
-					+ newEnquiry.getAcademic_project_enquiry_delivery_date()
-					+ "','"
-					+ newEnquiry.getAcademic_project_enquiry_description()
-					+ "')";
-			// System.out.println(query);
-			st.executeUpdate(query);
-			st.close();
+			// save project
+//			tst = con.createStatement();
+//			tst.executeUpdate("delete from tbl_academic_project where enquiry_id='"	+ newEnquiry.getAcademic_project_enquiry_enquiry_id() + "'");
+//			tst.close();
+//
+//			st = con.createStatement();
+//			String query = "insert into tbl_academic_project (enquiry_id,project_name,delivery_date,project_description) values ('"
+//					+ newEnquiry.getAcademic_project_enquiry_enquiry_id()
+//					+ "','"
+//					+ newEnquiry.getAcademic_project_enquiry_project_name()
+//					+ "','"
+//					+ newEnquiry.getAcademic_project_enquiry_delivery_date()
+//					+ "','"
+//					+ newEnquiry.getAcademic_project_enquiry_description()
+//					+ "')";
+//			// System.out.println(query);
+//			st.executeUpdate(query);
+//			st.close();
 			// save reference
 
 			st = con.createStatement();
