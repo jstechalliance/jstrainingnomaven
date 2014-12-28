@@ -16,7 +16,7 @@
 									<div class="slider_content">
                                         <h3>Overview</h3>
                                         <p style="text-align: justify;">
-                                        	Founded in 2009, J S Informatics maintains software development center is located in Indore ,India. Basing on our proven methodology, and engineering concepts, we deliver software outsourcing and IT services. We integrate software, data and services to help customers realize and implement they needs, drive more insightful decisions.We differentiate our self in two basic verticals. IT Training and Software Development .
+                                        	Founded in 2009, JS Informatics maintains software development center is located in Indore ,India. Basing on our proven methodology, and engineering concepts, we deliver software outsourcing and IT services. We integrate software, data and services to help customers realize and implement they needs, drive more insightful decisions.We differentiate our self in two basic verticals. IT Training and Software Development .
                                         </p>
                                     </div>
 								</div>

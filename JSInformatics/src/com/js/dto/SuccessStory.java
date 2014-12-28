@@ -1,9 +1,12 @@
 package com.js.dto;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
+
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity(name="tbl_success_story")
@@ -17,6 +20,7 @@ public class SuccessStory {
 	private String year;
 	private String college;
 	private String status;
+	private Testimonial testimonial;
 	
 	@Id
 	@GeneratedValue
@@ -69,5 +73,14 @@ public class SuccessStory {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
+	
+	@OneToOne(targetEntity=Testimonial.class,cascade=CascadeType.ALL)
+	public Testimonial getTestimonial() {
+		return testimonial;
+	}
+	public void setTestimonial(Testimonial testimonial) {
+		this.testimonial = testimonial;
+	}
+	
 	
 }

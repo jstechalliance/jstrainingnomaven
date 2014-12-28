@@ -73,6 +73,9 @@
 	<bean id="webEnquiryDAO" class="com.js.dao.impl.WebEnquiryDAOImpl" scope="prototype">
 		<property name="basicDataSource" ref="basicDataSource"></property>
 	</bean>
+	<bean id="certificateDAO" class="com.js.dao.impl.CertificateDAOImpl" scope="prototype">
+		<property name="basicDataSource" ref="basicDataSource"></property>
+	</bean>
 	<!-- DAO Implementation : Stop -->
 	
 	<!-- Service Implementation : Start -->
@@ -113,7 +116,9 @@
 	<bean id="webEnquiryService" class="com.js.service.impl.WebEnquiryServiceImpl" scope="prototype">
 		<property name="webEnquiryDAO" ref="webEnquiryDAO"></property>
 	</bean>
-	
+	<bean id="certificateService" class="com.js.service.impl.CertificateServiceImpl" scope="prototype">
+		<property name="certificateDAO" ref="certificateDAO"></property>
+	</bean>
 	
 	<!-- Service Implementation : Stop -->
 	
@@ -145,6 +150,10 @@
 	    <property name="webEnquiryService" ref="webEnquiryService"></property>
 	</bean>
 
+	<bean id="certificateController" class="com.js.controller.CertificateController" scope="prototype">
+	    <property name="certificateService" ref="certificateService"></property>
+	</bean>
+	
 	<!-- Controller Implementation : Stop -->
 	
 	

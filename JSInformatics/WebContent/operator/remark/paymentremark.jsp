@@ -140,7 +140,7 @@
 						type="date" name="payment_alert"></td>
 					<td align="center" style="width: 20%;" bgcolor="#333333"><input
 						type="submit" id="id_submit_payment_remark" value="Save"
-						style="float: right; display: block; width: 75px; height: 25px; margin: 2px; padding-top: 1px; font-size: 12px; font-weight: bold; color: #a9a9a9; text-align: center; background: url(images/templatemo_btn.png) no-repeat;">
+						style="float: right; display: block; width: 75px; height: 25px; margin: 2px; padding-top: 1px; font-size: 12px; font-weight: bold; color: #a9a9a9; text-align: center; background: url(../resources/images/templatemo_btn.png) no-repeat;">
 					</td>
 				</tr>
 			</table>

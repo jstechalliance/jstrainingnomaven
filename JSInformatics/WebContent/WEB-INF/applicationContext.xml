@@ -61,5 +61,15 @@
 
 	<!-- Success story : Stop -->
 
+	<!-- Testimonial story : Start -->
+	<bean id="testimonialDAO" class="com.js.dao.impl.TestimonialDAOImpl">
+	    <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="testimonialService" class="com.js.service.impl.TestimonialServiceImpl">
+		<property name="testimonialDAO" ref="testimonialDAO"></property>
+	</bean>
+
+	<!-- Testimonial story : Stop -->
+	
 
 </beans>

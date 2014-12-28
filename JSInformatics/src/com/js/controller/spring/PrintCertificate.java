@@ -25,8 +25,9 @@ public class PrintCertificate {
 	String he_she="he";
 	String He_She="He";
 	String him = "him";
+	String so_do ="S/o";
 	
-	@RequestMapping(value = "certificate", method = RequestMethod.GET)
+	@RequestMapping(value = "certificate", method = RequestMethod.POST)
 	public ModelAndView doSalesReportPDF(HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView("index");
 //		HttpSession httpSession = request.getSession(false);
@@ -47,36 +48,55 @@ public class PrintCertificate {
 
 		// Create first item
 		CertificateDTO certificateDTO = new CertificateDTO();
-		certificateDTO.setCourseName("Android Technology");
-		certificateDTO.setAuthorizedSignatory("Kumar Anand");
-		certificateDTO.setIssueDate("Indore 16th of May 2013");
-		certificateDTO.setRegistrationNo("Reg No : 123456789");
-		certificateDTO.setGender("M");
 		
-		String studentFullName = "Prashanna Gupta";
-		String fatherFullName = "Mr. Dilip Kumar Gupta";
-		String so_do ="S/o";
-		String degree = "B.E";
-		String stream = "Information Technology";
-		String college = "J.I.T";
-		String collegeAddress = "Khargone";
-		String trainingStartDate = "11/12/2014";
-		String trainingEndDate = "31/12/2014";
+		
+		String studentFullName = request.getParameter("fullName");
+		String fatherFullName = request.getParameter("fatherName");
+		String degree = request.getParameter("qualification");
+		String stream = request.getParameter("branch");
+		if(stream==null){
+			stream="";
+		}
+		String college = request.getParameter("collegeName");
+		String collegeAddress = request.getParameter("collegeAddress");
+		if(collegeAddress==null){
+			collegeAddress="";
+		}
+		String trainingStartDate = request.getParameter("registrationDate");
+		String trainingEndDate = request.getParameter("trainingEndDate");
+		String registrationNo = request.getParameter("registrationNo");
+		String courseName = request.getParameter("course");
+		String courseSuffix = request.getParameter("courseSuffix");
+		if(courseSuffix==null){
+			courseSuffix="";
+		}
+		String gender = request.getParameter("gender");
+		String authorizedSignatory = request.getParameter("authorizedSignatory");
+		String issueDate = request.getParameter("issuedate");
+		
+		certificateDTO.setRegistrationNo(registrationNo);
+		certificateDTO.setCourseName(courseName+" "+courseSuffix);
+		certificateDTO.setAuthorizedSignatory(authorizedSignatory);
+		certificateDTO.setIssueDate("Indore "+issueDate);
+		certificateDTO.setRegistrationNo("Reg No : "+registrationNo);
+		certificateDTO.setGender(gender);
 		
 		if(certificateDTO.getGender().equalsIgnoreCase("M")){
 			his_her ="his";
 			he_she="he";
 			He_She="He";
 			him = "him";
+			so_do ="S/o";
 		}else{
 			his_her ="her";
 			he_she="she";
 			He_She="She";
 			him = "her";
+			so_do ="D/o";
 		}
 		
 		
-		String firstParagraph = "This is certified that "+studentFullName+" "+so_do+" of "+fatherFullName+" student of "+degree+" "+stream+" from "+college+", "+collegeAddress+" has completed certification course in our Organization from "+trainingStartDate+" to "+trainingEndDate+" with our entire satisfaction.";
+		String firstParagraph = "This is certified that "+studentFullName+" "+so_do+" of "+fatherFullName+" student of "+degree+" "+stream+" from "+college+", "+collegeAddress+" has completed certification course in our organization from "+trainingStartDate+" to "+trainingEndDate+" with our entire satisfaction.";
 		String secondParagraph = "During "+his_her+" training period we found "+he_she+" is sincere, honest, hard working, dedicated with professional attitude and very good knowledge. "+He_She+" is amiable in nature and character is well.";
 		String thirdParagraph = "We have found "+him+" to be self starter who is motivated duty bound high committed team player with strong conceptual knowledge of mentioned technology.";
 		String fourthParagraph = "The management wishes "+his_her+" good luck for "+his_her+" bright future.";

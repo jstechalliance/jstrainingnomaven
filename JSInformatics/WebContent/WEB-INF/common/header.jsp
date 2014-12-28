@@ -73,7 +73,7 @@
 
 .payment_remark_dialog_show_button {
 	margin-left: 50px;
-	width: 800px;
+	width: 850px;
 	height: 30px;
 	border-color: aqua;
 }
@@ -446,7 +446,7 @@
 			</tr>
 		</table>
 		<img id="id_img_payment_remark_dialog_loader" alt="Please wait..."
-			src="../images/image_loader.gif" width="32" height="32"
+			src="../resources/images/image_loader.gif" width="32" height="32"
 			style="margin-top: 17%; position: absolute; margin-left: 48%;">
 		<div id="id_div_payment_remark_dialog_form" style="width: 100%;">
 			
@@ -695,7 +695,7 @@
 									<img src="../images/logo.PNG" alt="" width="172" height="67">
 								</p></td>
 							<td width="69%" valign="top"><div align="right"
-									class="style1 style3">J S Informatics</div></td>
+									class="style1 style3">JS Informatics</div></td>
 						</tr>
 						<tr>
 							<td valign="top"><div align="right" class="style7">
@@ -817,7 +817,7 @@
 									<img src="../images/logo.PNG" alt="" width="150" height="50">
 								</p></td>
 							<td width="69%" valign="top"><div align="right"
-									class="style1 style3">J S Informatics</div></td>
+									class="style1 style3">JS Informatics</div></td>
 						</tr>
 						<tr>
 							<td valign="top"><div align="right" class="style2">Passion

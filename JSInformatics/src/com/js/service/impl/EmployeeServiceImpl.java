@@ -1,6 +1,7 @@
 package com.js.service.impl;
 
 import java.sql.Connection;
+import java.util.List;
 
 import com.js.dao.EmployeeDAO;
 import com.js.dto.Employee;
@@ -23,5 +24,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 	public Employee getEmployeeDetailByEmployeeId(Employee employee,
 			Connection con) throws Exception {
 		return employeeDAO.getEmployeeDetailByEmployeeId(employee,con);
+	}
+	public List<Employee>getAllManagerOfBranch(String branchId) throws Exception{
+		return employeeDAO.getAllManagerOfBranch(branchId);
 	}
 }

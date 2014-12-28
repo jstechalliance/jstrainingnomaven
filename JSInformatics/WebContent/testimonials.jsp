@@ -3,7 +3,7 @@
 <%@include file="visitorheader.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
-
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
         <br/>
                 
                 
@@ -14,8 +14,6 @@
 			<div id="content">   
 				<div class="latestEvent">
 					<h4>Testimonials</h4>
-					
-               
                 <br/>
                 <br/>
                 
@@ -23,55 +21,63 @@
                 <div class="hr_divider" style="padding-bottom: 5px; margin-bottom: 15px;"></div>
                 
                 <div class="leftContent" style="width: 840px;">
+                		
+                	<c:if test="${testimonialId!=null}">
+                		<script type="text/javascript">
+                		 $( document ).ready(function() { 
+                			 $('html, body').animate({
+                			        scrollTop: $("#<c:out value="${testimonialId}"></c:out>").offset().top
+                			    }, 0);
+                		}); 
+                		</script>
+                	</c:if>
                 
                 	<c:if test="${not empty candidateList}">
-                		<table border="1" style="width: 840px;">
-                		<tr>
+                		
                 		<c:forEach var="i" begin="1" end="${fn:length(candidateList)}" >
-                			
-                			<td style="width: 140px;">
-                				<table border="1" style="width: 140px;">
+                			<table border="0" style="width: 840px; margin-bottom: 10px;" id="<c:out value="${candidateList[i-1].oid}"/>">
+                		<tr>
+                			<td style="width: 600; top-margin:5px;box-shadow: 0px 0px 3px black;"  align="left">
+                				<table  border="0" style="float:left;margin-top:-1px;margin-bottom:-1px;box-shadow: 0px 0px 3px black;">
                 					<tr>
-                						<td colspan="2" style="width: 140px; height: 120px;" align="center" >
-                							<img alt="" src="${candidateList[i-1].photoPath}" style="width: 240;height: 200px;">
+                					<td colspan="2">
+                						<div class="image_wrapper image_fl" style="margin:0px;">
+													<img style="width: 150px; height: 150px;"
+														src="${candidateList[i-1].photoPath}" alt="Profile picture" />
+												</div>
                 						</td>
                 					</tr>
                 					<tr>
-                						<td style="width: 100px;">
-                							Name 
+                						<td style="width: 60px;" valign="top">
+                							Name : 
                 						</td>
-                						<td style="width: 180px;">
+                						<td style="width: 100px;" valign="top">
                 							<a href=""><c:out value="${candidateList[i-1].candidateName}"/></a>
                 						</td>
                 					</tr>
                 					<tr>
-                						<td>
-                							Company 
+                						<td valign="top">
+                							College : 
                 						</td>
-                						<td>
-                							<c:out value="${candidateList[i-1].companyName}"/>
-                						</td>
-                					</tr>
-                					<tr>
-                						<td>
-                							Year 
-                						</td>
-                						<td>
-                							<c:out value="${candidateList[i-1].year}"/>
+                						<td valign="top">
+                							<c:out value="${candidateList[i-1].college}"/>
                 						</td>
                 					</tr>
                 				</table>
-                			
-                			</td>
-                			<td align="left" valign="top" style="width: 700px;">
-                				kdhroieoitueori
+                				<table style="float:left;width:640px;margin-left: 10px;">
+                					<tr>
+                						<td>
+                							<p style="height:198px; margin-bottom: 5px; overflow-y:auto; margin-top: 5px; text-align: justify; ">
+												<c:out value="${candidateList[i-1].content}"/>                							
+                							</p>
+                						</td>
+                					</tr>
+                				</table>
                 			</td>
                 			</tr>
-                		<tr>
-                			
-                		</c:forEach>
-                		</tr>
                 		</table>
+                		</c:forEach>
+                		
                 	</c:if>
                 
                 	<br/>
@@ -93,7 +99,7 @@
    
 		<div id="templatemo_footer">
 		
-             Copyright © 2013 <a href="http://www.jsinformatics.com">J S Informatics</a> | Designed by <a href="" target="_parent">Prashanna Gupta</a>
+             Copyright &copy; 2013 <a href="http://www.jsinformatics.com">JS Informatics</a> | Designed by <a href="" target="_parent">Prashanna Gupta</a>
 			 
        </div>
         

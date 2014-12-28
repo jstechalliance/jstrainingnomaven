@@ -10,6 +10,8 @@
         <mapping class="com.js.project.dto.ProductFeatures"/>   
         <mapping class="com.js.project.dto.ProductEnvironment"/>
         <mapping class="com.js.dto.SuccessStory"/>
+        <mapping class="com.js.dto.Testimonial"/>
+        
         <!-- Permission stuff : Start -->
         
         

@@ -264,11 +264,15 @@ function subSubmitBtnAPR(id) {
 	}
 }
 function makePaymentBtn(id) {
+
 	var amount = document.getElementById("my_id_amount" + id);
 	var transfer_code = document.getElementById("id_transfer_code" + id);
 	var mode = document.getElementById("id_payment_mode" + id);
+	var manager = document.getElementById("id_manager_id" + id);
 	var dueAmount = parseInt(document.getElementById("id_dueAmount" + id).value);
-
+	
+	
+	
 	if (mode.value == "Select") {
 		mode.style.borderColor = 'red';
 		alert("Please select payment mode");
@@ -295,7 +299,12 @@ function makePaymentBtn(id) {
 		amount.focus();
 		return false;
 	}
-
+	if (manager.value == "Select") {
+		manager.style.borderColor = 'red';
+		alert("Please select manager");
+		manager.focus();
+		return false;
+	}
 	if (parseInt(amount.value) > dueAmount) {
 		amount.style.borderColor = 'red';
 		alert("Insufficient amount.");

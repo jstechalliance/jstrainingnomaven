@@ -996,7 +996,7 @@ public class PaymentDAOImpl implements PaymentDAO{
 
 			if (payment.getMyid().contains(branchcode)) {
 				st = con.createStatement();
-				st.executeUpdate("insert into tbl_payment (payment_id,amount,payment_date,myid,received_by,source,mode,transfer_code,bank_name,payment_status,approvel_date) values ('"
+				st.executeUpdate("insert into tbl_payment (payment_id,amount,payment_date,myid,received_by,source,mode,transfer_code,bank_name,payment_status,approvel_date,paymentSubmittedTo) values ('"
 						+ payment.getPayment_id()
 						+ "',"
 						+ payment.getAmount()
@@ -1014,7 +1014,7 @@ public class PaymentDAOImpl implements PaymentDAO{
 						+ payment.getTransfer_code()
 						+ "','"
 						+ payment.getTransfer_bank_name()
-						+ "','Not Approved','2000-01-01')");
+						+ "','Not Approved','2000-01-01','"+payment.getPaymentSubmittedToId()+"')");
 				st.close();
 				payment_id_long++;
 				st = con.createStatement();
@@ -1152,6 +1152,7 @@ public class PaymentDAOImpl implements PaymentDAO{
 					payment.setPayment_status(rs.getString("payment_status"));
 					payment.setApprovel_date(rs.getString("approvel_date"));
 					payment.setApproved_by(rs.getString("approved_by"));
+					payment.setPaymentSubmittedToId(rs.getString("paymentSubmittedTo"));
 					tpayment = payment;
 				}
 				rs.close();
@@ -1188,6 +1189,7 @@ public class PaymentDAOImpl implements PaymentDAO{
 				tpayment.setPayment_status(rs.getString("payment_status"));
 				tpayment.setApprovel_date(rs.getString("approvel_date"));
 				tpayment.setApproved_by(rs.getString("approved_by"));
+				tpayment.setPaymentSubmittedToId(rs.getString("paymentSubmittedTo"));
 				if (tpayment.getApproved_by() == null
 						|| tpayment.getApproved_by().equalsIgnoreCase("null")) {
 					tpayment.setApproved_by("NA");
@@ -1277,7 +1279,8 @@ public class PaymentDAOImpl implements PaymentDAO{
 				payment.setPayment_status(rs.getString("payment_status"));
 				payment.setApprovel_date(rs.getString("approvel_date"));
 				payment.setApproved_by(rs.getString("approved_by"));
-
+				payment.setPaymentSubmittedToId(rs.getString("paymentSubmittedTo"));
+				
 				Statement st1 = con.createStatement();
 				ResultSet rs1 = st1
 						.executeQuery("SELECT full_name FROM tbl_employee where employee_id='"
@@ -1285,8 +1288,19 @@ public class PaymentDAOImpl implements PaymentDAO{
 				while (rs1.next()) {
 					payment.setReceiverName(rs1.getString("full_name"));
 				}
+				rs1.close();
 				st1.close();
 
+				Statement st2 = con.createStatement();
+				ResultSet rs2 = st2
+						.executeQuery("SELECT full_name FROM tbl_employee where employee_id='"
+								+ payment.getPaymentSubmittedToId() + "'");
+				while (rs2.next()) {
+					payment.setPaymentSubmittedToName(rs2.getString("full_name"));
+				}
+				rs2.close();
+				st2.close();
+				
 				String que = "SELECT full_name from tbl_enquiry enq ,";
 				if (payment.getSource().equalsIgnoreCase("Training")) {
 					que = que

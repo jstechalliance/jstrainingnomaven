@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>J S Informatics</title>
+<title>JS Informatics</title>
 <meta name="keywords" content="glossy box, web design, colorful background, free templates, website templates, CSS, HTML" />
 <meta name="description" content="Glossy Box | free website template with a colorful background" />
 <link href="resources/templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -17,7 +17,7 @@
     
     	<div id="templatemo_header">
 			<div id="site_title">
-				<h1><a href="http://www.jsinformatis.com">J S Informatics<span>Passion to Excel</span></a></h1>
+				<h1><a href="http://www.jsinformatis.com">JS Informatics<span>Passion to Excel</span></a></h1>
 			</div> <!-- end of site_title -->
 
 				<ul id="social_box">
@@ -88,7 +88,7 @@
    
 		<div id="templatemo_footer">
 		
-             Copyright Â© 2013 <a href="http://www.jsinformatics.com">J S Informatics</a> | Designed by <a href="" target="_parent">Prashanna Gupta</a>
+             Copyright © 2013 <a href="http://www.jsinformatics.com">JS Informatics</a> | Designed by <a href="" target="_parent">Prashanna Gupta</a>
 			 
        </div>
         

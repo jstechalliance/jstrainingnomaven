@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="icon" type="image/png" href="../resources/images/jsi.png">
 <script src="../resources/js/jquery-1.9.0.js"></script>
 <script src="../resources/js/myalert/jquery.ui.draggable.js" type="text/javascript"></script>
 <script src="../resources/js/myalert/jquery.alerts.js" type="text/javascript"></script>
@@ -71,7 +72,13 @@
 
 .payment_remark_dialog_show_button {
 	margin-left: 50px;
-	width: 800px;
+	width: 850px;
+	height: 30px;
+	border-color: aqua;
+}
+.generate_certificate_dialog_show_button {
+	margin-left: 50px;
+	width: 850px;
 	height: 30px;
 	border-color: aqua;
 }
@@ -137,8 +144,31 @@
 							
 						});
 						
+						$(".generate_certificate_dialog_show_button").click(function(e) {								
+							showCertificateFormDialog(true);
+							
+							var idsend=""+this.id;
+							
+							var myidsend=""+$("#myid"+idsend).val();
+							var myname=""+$("#h_id_fullname"+idsend).val();
+							var enquiry_id=""+$("#h_id_enquiryid"+idsend).val();
+							var course_id = ""+$("#h_id_course"+idsend).val();
+							
+							//alert(myidsend+" "+myname);
+							
+							loadCertificateForm(enquiry_id,myidsend,course_id);
+							e.preventDefault();
+							
+							
+						});
+						
 						$("#id_payment_remark_dialog_close").click(function(e) {
 							hidePaymentRemarkDialog();
+							e.preventDefault();
+						});
+						
+						$("#id_generate_certificate_form_dialog_close,#id_certificate_button").click(function(e) {
+							hideGenerateCertificateFormDialog();
 							e.preventDefault();
 						});
 						$("#id_show_changePassword_dialog").click(function(e) {
@@ -411,11 +441,33 @@
 			});
 		}
 	}
+	function showCertificateFormDialog(modal) {
+		$("#overlay").show();
+		$("#generate_certificate_form_dialog").fadeIn(300);
+
+		if (modal) {
+			$("#overlay").unbind("click");
+		} else {
+			$("#overlay").click(function(e) {
+				HideChangePasswordDialog();
+			});
+		}
+	}
 	function loadPaymentRemarkList(idsend,myidsend,myname){
 		$("#id_img_payment_remark_dialog_loader").show();
 		$("#id_div_payment_remark_dialog_form").load("remark/paymentremark.jsp",{ componentId: idsend,myid : myidsend,name : myname},function(responseTxt,statusTxt,xhr){							      
 			$("#id_img_payment_remark_dialog_loader").hide();							      
 		});		
+	}
+	function loadCertificateForm(enquiry_id,myidsend,course_id){
+		$("#id_img_generate_certificate_form_dialog_loader").show();
+		$("#id_div_generate_certificate_form_dialog_form").load("certificate/certificate_form.jsp",{ enquiryId: enquiry_id,myid : myidsend,courseId : course_id},function(responseTxt,statusTxt,xhr){							      
+			$("#id_img_generate_certificate_form_dialog_loader").hide();							      
+		});		
+	}
+	function hideGenerateCertificateFormDialog() {
+		$("#overlay").hide();
+		$("#generate_certificate_form_dialog").fadeOut(300);
 	}
 	function hidePaymentRemarkDialog() {
 		$("#overlay").hide();
@@ -431,7 +483,23 @@
 
 </head>
 <body>
-
+<div id="generate_certificate_form_dialog" class="web_dialog"
+		style="left: 40%; top: 30%; width: 50%; height: 300px;">
+		<table style="width: 100%; border: 0px;" cellpadding="3"
+			cellspacing="0">
+			<tr>
+				<td class="web_dialog_title">Create Certificate</td>
+				<td class="web_dialog_title align_right"><a href="#"
+					id="id_generate_certificate_form_dialog_close" style="color: #FFFFFF;">Close</a></td>
+			</tr>
+		</table>
+		<img id="id_img_generate_certificate_form_dialog_loader" alt="Please wait..."
+			src="resources/images/image_loader.gif" width="32" height="32"
+			style="margin-top: 17%; position: absolute; margin-left: 48%;">
+		<div id="id_div_generate_certificate_form_dialog_form" style="width: 100%;">
+			
+		</div>
+	</div>
 
 	<div id="payment_remark_dialog" class="web_dialog"
 		style="left: 40%; top: 30%; width: 50%; height: 300px;">
@@ -444,7 +512,7 @@
 			</tr>
 		</table>
 		<img id="id_img_payment_remark_dialog_loader" alt="Please wait..."
-			src="resources/images/image_loader.gif" width="32" height="32"
+			src="../resources/images/image_loader.gif" width="32" height="32"
 			style="margin-top: 17%; position: absolute; margin-left: 48%;">
 		<div id="id_div_payment_remark_dialog_form" style="width: 100%;">
 			
@@ -693,7 +761,7 @@
 									<img src="resources/images/logo.PNG" alt="" width="172" height="67">
 								</p></td>
 							<td width="69%" valign="top"><div align="right"
-									class="style1 style3">J S Informatics</div></td>
+									class="style1 style3">JS Informatics</div></td>
 						</tr>
 						<tr>
 							<td valign="top"><div align="right" class="style7">
@@ -788,12 +856,12 @@
 					<table width="100%" border="0">
 						<tr>
 							<td width="100%" align="center"><img
-								src="resources/images/android.png" width="62px" height="50px"
-								border="0"> <img src="resources/images/iphone.png" width="62px"
-								height="50px" border="0"> <img src="resources/images/java.png"
+								src="../resources/images/android.png" width="62px" height="50px"
+								border="0"> <img src="../resources/images/iphone.png" width="62px"
+								height="50px" border="0"> <img src="../resources/images/java.png"
 								width="62px" height="50px" border="0"> <img
-								src="resources/images/mysql.png" width="62px" height="50px" border="0">
-								<img src="resources/images/se.png" width="62px" height="50px"
+								src="../resources/images/mysql.png" width="62px" height="50px" border="0">
+								<img src="../resources/images/se.png" width="62px" height="50px"
 								border="0"></td>
 						</tr>
 						<tr>
@@ -815,7 +883,7 @@
 									<img src="resources/images/logo.PNG" alt="" width="150" height="50">
 								</p></td>
 							<td width="69%" valign="top"><div align="right"
-									class="style1 style3">J S Informatics</div></td>
+									class="style1 style3">JS Informatics</div></td>
 						</tr>
 						<tr>
 							<td valign="top"><div align="right" class="style2">Passion

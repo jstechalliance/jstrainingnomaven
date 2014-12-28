@@ -25,7 +25,7 @@
 <head>
 <%@include file="../common/header.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>J S Informatics</title>
+<title>JS Informatics</title>
 <meta name="keywords"
 	content="glossy box, web design, colorful background, free templates, website templates, CSS, HTML" />
 <meta name="description"
@@ -238,7 +238,7 @@
 			<div id="templatemo_header">
 				<div id="site_title">
 					<h1>
-						<a href="http://www.jsinformatics.com">J S Informatics<span>Passion
+						<a href="http://www.jsinformatics.com">JS Informatics<span>Passion
 								to Excel</span></a>
 					</h1>
 				</div>
@@ -287,6 +287,7 @@
 			
 				MyMessage myMessage=(MyMessage)request.getAttribute("CANDIDATEFOUNDIN");
 				String branchId=(String)request.getSession(false).getAttribute("BRANCHID");
+				List <Employee>managerList = employeeService.getAllManagerOfBranch(branchId);
 				        	List <Course>allCourseList=courseService.getAllCourse(branchId);
 				        	List <Course>cList=courseService.getAllEnquiredCourse(branchId);
 				        	List <College>collegeList=collegeService.getAllEnquiryedCollege(branchId);
@@ -702,6 +703,7 @@
 									document
 											.getElementById("id_transfer_code_msg"
 													+ val).disabled = true;
+									
 								} else {
 									document.getElementById("id_transfer_code"
 											+ val).disabled = false;
@@ -826,7 +828,7 @@
 												
 												out.println("<div id='"+count+"' style='display:none' >");
 													out.println("<form action='#savepayment.jsp' id='makePaymentForm_"+count+"' method='post'>");
-													out.println("<table border='1' width='800px' style='margin-left:50px; padding:3px'>");									
+													out.println("<table border='1' width='850px' style='margin-left:50px; padding:3px'>");									
 													out.println("<tr bgcolor='#aa1122'><td align='center' width='10%'><b>S.no</b></td><td align='center' width='15'><b>Amount</b></td><td align='center' width='10'><b>Mode</b></td><td align='center' width='20%'><b>Payment Date</b></td><td align='center' width='23%'><b>Received By</b></td><td align='center' width='12%'><b>Status</b></td><td align='center' width='12%'><b>Approved By</b></td><td align='center' width='10%'><b>Operation</b></td></tr>");
 													Payment pay=new Payment();
 													pay.setMyid(trainingRegistrationDTO.getRegistration_id());																								
@@ -880,9 +882,9 @@
 														}
 														out.println("</table>");
 														if(dueAmount>0){
-															out.println("<table border='1' width='800px' style='margin-left:50px; padding:3px'>");
+															out.println("<table border='1' width='850px' style='margin-left:50px; padding:3px'>");
 															out.println("<tr bgcolor='#999999'>");
-															out.println("<td  bgcolor='#333333'>");
+															out.println("<td  bgcolor='#333333' width='675'>");
 																out.println("<div style='float: left;'>");
 																out.println("Mode: <select name='payment_mode' id='id_payment_mode"+count+"' onchange='checkfordisablity("+count+");'>");
 													            	out.println("<option value='Select'>Select</option>");
@@ -908,8 +910,15 @@
 																out.println("<input type='hidden' name='myid' value='"+trainingRegistrationDTO.getRegistration_id()+"' id='myid"+count+"' size='30'/>");
 																out.println("Amount : <input type='text' name='amount' id='my_id_amount"+count+"' value='' size='5' />");
 																out.println("<input type='hidden' value='"+searchResultListForPayment.size()+"' id='maxvalue"+count+"'/>");
+															
+																out.println("Manager : <select name='paymentSubmittedToId' id='id_manager_id"+count+"' style='width:110px;'>");
+																out.println("<option value='Select'>Select</option>");
+																for(Employee emp : managerList){
+																	out.println("<option value='"+emp.getEmployee_id()+"'>"+emp.getFull_name()+"</option>");
+												            	}
+												            	out.println("</select>");
 															out.println("</td>");
-															out.println("<td bgcolor='#333333' >");	
+															out.println("<td bgcolor='#333333' width='175'>");	
 															out.println("<input type='button' onclick='closeRemark("+searchResultListForPayment.size()+")' value='Close' style='float: left; display: block; width: 75px; height: 25px; margin:2px; padding-top: 1px; font-size: 12px; font-weight: bold; color: #a9a9a9; text-align: center; background: url(../images/templatemo_btn.png) no-repeat;'/>");
 															out.println("<input onclick='makePaymentBtn(\""+count+"\");' type='button' value='Save' style='float: right; display: block; width: 75px; height: 25px; margin:2px; padding-top: 1px; font-size: 12px; font-weight: bold; color: #a9a9a9; text-align: center; background: url(../images/templatemo_btn.png) no-repeat;'/>");
 															out.println("</div>");
@@ -981,7 +990,7 @@
 													out.println("</tr></table>");
 													out.println("<div id='"+count+"' style='display:none' >");
 													out.println("<form action='#savepayment.jsp' id='makePaymentForm_"+count+"' method='post'>");
-													out.println("<table border='1' width='800px' style='margin-left:50px; padding:3px'>");									
+													out.println("<table border='1' width='850px' style='margin-left:50px; padding:3px'>");									
 													out.println("<tr bgcolor='#aa1122'><td align='center' width='10%'><b>S.no</b></td><td align='center' width='15'><b>Amount</b></td><td align='center' width='10'><b>Mode</b></td><td align='center' width='20%'><b>Payment Date</b></td><td align='center' width='23%'><b>Received By</b></td><td align='center' width='12%'><b>Status</b></td><td align='center' width='12%'><b>Approved By</b></td><td align='center' width='12%'><b>Approved By</b></td><td align='center' width='10%'><b>Operation</b></td></tr>");
 													Payment pay=new Payment();
 													pay.setMyid(academicProjectDTO.getProject_id());																								
@@ -1035,9 +1044,9 @@
 														}
 														out.println("</table>");
 														if(dueAmount>0){
-														out.println("<table border='1' width='800px' style='margin-left:50px; padding:3px'>");
+														out.println("<table border='1' width='850px' style='margin-left:50px; padding:3px'>");
 															out.println("<tr bgcolor='#999999'>");
-															out.println("<td  bgcolor='#333333'>");
+															out.println("<td  bgcolor='#333333' width='675'>");
 																out.println("<div style='float: left;'>");
 																out.println("Mode: <select name='payment_mode' id='id_payment_mode"+count+"' onchange='checkfordisablity("+count+");'>");
 													            	out.println("<option value='Select'>Select</option>");
@@ -1063,8 +1072,16 @@
 																out.println("<input type='hidden' name='myid' value='"+academicProjectDTO.getProject_id()+"' id='myid"+count+"' size='30'/>");
 																out.println("Amount : <input type='text' name='amount' id='my_id_amount"+count+"' value='' size='5' />");
 																out.println("<input type='hidden' value='"+searchResultListForPayment.size()+"' id='maxvalue"+count+"'/>");
-															out.println("</td>");
-															out.println("<td bgcolor='#333333' >");	
+															
+																out.println("Manager : <select name='paymentSubmittedToId' id='id_manager_id"+count+"' style='width:110px;'>");
+																out.println("<option value='Select'>Select</option>");
+																for(Employee emp : managerList){
+																	out.println("<option value='"+emp.getEmployee_id()+"'>"+emp.getFull_name()+"</option>");
+												            	}
+												            	out.println("</select>");
+																
+																out.println("</td>");
+															out.println("<td bgcolor='#333333' width='175'>");	
 															out.println("<input type='button' onclick='closeRemark("+(searchResultListForPayment.size()+privioutotal)+")' value='Close' style='float: left; display: block; width: 75px; height: 25px; margin:2px; padding-top: 1px; font-size: 12px; font-weight: bold; color: #a9a9a9; text-align: center; background: url(../images/templatemo_btn.png) no-repeat;'/>");
 															out.println("<input onclick='makePaymentBtn(\""+count+"\");' type='button' value='Save' style='float: right; display: block; width: 75px; height: 25px; margin:2px; padding-top: 1px; font-size: 12px; font-weight: bold; color: #a9a9a9; text-align: center; background: url(../images/templatemo_btn.png) no-repeat;'/>");
 															out.println("</div>");
@@ -1179,7 +1196,7 @@
 										out.println("</tr></table>");
 										out.println("<div id='"+count+"' style='display:none' >");																	
 										out.println("<form action='#savepayment.jsp' id='makePaymentForm_"+count+"' method='post'>");
-											out.println("<table border='1' width='800px' style='margin-left:50px; padding:3px'>");									
+											out.println("<table border='1' width='850px' style='margin-left:50px; padding:3px'>");									
 											out.println("<tr bgcolor='#aa1122'><td align='center' width='10%'><b>S.no</b></td><td align='center' width='15'><b>Amount</b></td><td align='center' width='10'><b>Mode</b></td><td align='center' width='20%'><b>Payment Date</b></td><td align='center' width='23%'><b>Received By</b></td><td align='center' width='12%'><b>Status</b></td><td align='center' width='12%'><b>Approved By</b></td><td align='center' width='10%'><b>Operation</b></td></tr>");
 											Payment pay=new Payment();
 											pay.setMyid(trainingRegistrationDTO.getRegistration_id());																								
@@ -1237,9 +1254,9 @@
 											}
 											out.println("</table>");
 											if(dueAmount>0){
-											out.println("<table border='1' width='800px' style='margin-left:50px; padding:3px'>");
+											out.println("<table border='1' width='850px' style='margin-left:50px; padding:3px'>");
 												out.println("<tr bgcolor='#999999'>");
-													out.println("<td  bgcolor='#333333'>");
+													out.println("<td  bgcolor='#333333' width='675'>");
 														out.println("<div style='float: left;'>");
 														out.println("Mode: <select name='payment_mode' id='id_payment_mode"+count+"' onchange='checkfordisablity("+count+");'>");
 		                    							out.println("<option value='Select'>Select</option>");
@@ -1266,8 +1283,16 @@
 														out.println("<input type='hidden' name='myid' value='"+trainingRegistrationDTO.getRegistration_id()+"' id='myid"+count+"' size='30'/>");
 														out.println("Amount : <input type='text' name='amount' id='my_id_amount"+count+"' value='' size='5' />");
 														out.println("<input type='hidden' value='"+searchResultListForPayment.size()+"' id='maxvalue"+count+"'/>");
-													out.println("</td>");
-													out.println("<td bgcolor='#333333' >");
+													
+														out.println("Manager : <select name='paymentSubmittedToId' id='id_manager_id"+count+"' style='width:110px;'>");
+														out.println("<option value='Select'>Select</option>");
+														for(Employee emp : managerList){
+															out.println("<option value='"+emp.getEmployee_id()+"'>"+emp.getFull_name()+"</option>");
+										            	}
+										            	out.println("</select>");
+														
+														out.println("</td>");
+													out.println("<td bgcolor='#333333' width='175' >");
 														out.println("<input type='button' onclick='closeRemark("+searchResultListForPayment.size()+")' value='Close' style='float: left; display: block; width: 75px; height: 25px; margin:2px; padding-top: 1px; font-size: 12px; font-weight: bold; color: #a9a9a9; text-align: center; background: url(../images/templatemo_btn.png) no-repeat;'/>");
 														out.println("<input onclick='makePaymentBtn(\""+count+"\");' type='button' value='Save' style='float: right; display: block; width: 75px; height: 25px; margin:2px; padding-top: 1px; font-size: 12px; font-weight: bold; color: #a9a9a9; text-align: center; background: url(../images/templatemo_btn.png) no-repeat;'/>");
 														out.println("</div>");
@@ -1334,7 +1359,7 @@
 											out.println("</tr></table>");
 											out.println("<div id='"+count+"' style='display:none' >");
 											out.println("<form action='#savepayment.jsp' id='makePaymentForm_"+count+"' method='post'>");
-											out.println("<table border='1' width='800px' style='margin-left:50px; padding:3px'>");									
+											out.println("<table border='1' width='850px' style='margin-left:50px; padding:3px'>");									
 											out.println("<tr bgcolor='#aa1122'><td align='center' width='10%'><b>S.no</b></td><td align='center' width='15'><b>Amount</b></td><td align='center' width='10'><b>Mode</b></td><td align='center' width='20%'><b>Payment Date</b></td><td align='center' width='23%'><b>Received By</b></td><td align='center' width='12%'><b>Status</b></td><td align='center' width='12%'><b>Approved By</b></td><td align='center' width='10%'><b>Operation</b></td></tr>");
 											Payment pay=new Payment();
 											pay.setMyid(academicProjectDTO.getProject_id());																								
@@ -1388,9 +1413,9 @@
 												}
 												out.println("</table>");
 												if(dueAmount>0){
-												out.println("<table border='1' width='800px' style='margin-left:50px; padding:3px'>");
+												out.println("<table border='1' width='850px' style='margin-left:50px; padding:3px'>");
 													out.println("<tr bgcolor='#999999'>");
-													out.println("<td  bgcolor='#333333'>");
+													out.println("<td  bgcolor='#333333' width='675'>");
 														out.println("<div style='float: left;'>");
 														out.println("Mode: <select name='payment_mode' id='id_payment_mode"+count+"' onchange='checkfordisablity("+count+");'>");
 											            	out.println("<option value='Select'>Select</option>");
@@ -1416,8 +1441,16 @@
 														out.println("<input type='hidden' name='myid' value='"+academicProjectDTO.getProject_id()+"' id='myid"+count+"' size='30'/>");
 														out.println("Amount : <input type='text' name='amount' id='my_id_amount"+count+"' value='' size='5' />");
 														out.println("<input type='hidden' value='"+searchResultListForPayment.size()+"' id='maxvalue"+count+"'/>");
-													out.println("</td>");
-													out.println("<td bgcolor='#333333' >");	
+													
+														out.println("Manager : <select name='paymentSubmittedToId' id='id_manager_id"+count+"' style='width:110px;'>");
+														out.println("<option value='Select'>Select</option>");
+														for(Employee emp : managerList){
+															out.println("<option value='"+emp.getEmployee_id()+"'>"+emp.getFull_name()+"</option>");
+										            	}
+										            	out.println("</select>");
+														
+														out.println("</td>");
+													out.println("<td bgcolor='#333333' width='175' >");	
 													out.println("<input type='button' onclick='closeRemark("+(academicProjectDTOs.size()+privioutotal)+")' value='Close' style='float: left; display: block; width: 75px; height: 25px; margin:2px; padding-top: 1px; font-size: 12px; font-weight: bold; color: #a9a9a9; text-align: center; background: url(../images/templatemo_btn.png) no-repeat;'/>");
 													out.println("<input onclick='makePaymentBtn(\""+count+"\");' type='button' value='Save' style='float: right; display: block; width: 75px; height: 25px; margin:2px; padding-top: 1px; font-size: 12px; font-weight: bold; color: #a9a9a9; text-align: center; background: url(../images/templatemo_btn.png) no-repeat;'/>");
 													out.println("</div>");
@@ -1463,8 +1496,8 @@
 										<th width="%"><a href="#">Amount</a></th>
 										<th width="%"><a href="#">Payment Mode</a></th>
 										<th width="%"><a href="#">Received By</a></th>
+										<th width="%"><a href="#">Submitted to</a></th>
 										<th width="%"><a href="#">Payment Date</a></th>	
-										<th width="%"><a href="#">Next Payment Date</a></th>	
 										<th width="%"><a href="#">Source</a></th>										
 										<th width="%"><a href="#">Status</a></th>
 										<th width="%"><a href="#">Payment Id</a></th>
@@ -1487,13 +1520,22 @@
 										<td width='%'><%=payment.getAmount() %></td>
 										<td width='%'><%=payment.getPayment_mode() %></td>
 										<td width='%'><%=payment.getReceiverName() %></td>
+										<td width='%'><%=payment.getPaymentSubmittedToName()%></td>
 										<td width='%'><%=payment.getPayment_date() %></td>
-										<td width='%'><%=payment.getAlertDate() %></td>
 										<td width='%'><%=payment.getSource() %></td>
 										<td width='%' id='p_approve_id_<%=count %>'>
-											<a href="#" onclick="approvePayment('<%=payment.getPayment_id()%>','<%=(count)%>','<%=count%>','<%=(count)%>');"><%=payment.getPayment_status()%></a>										
-										</td>
-										<td width='%'><%=payment.getPayment_id() %></td>
+											<%
+												String username = (String)request.getSession(false).getAttribute("USERNAME");
+												if(payment.getPaymentSubmittedToId().equals(username)){
+												%>
+													<a href="#" onclick="approvePayment('<%=payment.getPayment_id()%>','<%=(count)%>','<%=count%>','<%=(count)%>');"><%=payment.getPayment_status()%></a>										
+												<%
+												}else{
+													out.println(payment.getPayment_status());
+												} 
+											%>
+											</td>
+										<td width='%'><%=payment.getPayment_id()%></td>
 									</tr>
 									<% 
 										count++;
@@ -1527,7 +1569,7 @@
 
 			<div id="templatemo_footer">
 
-				Copyright Â© 2013 <a href="http://www.jsinformatics.com">J S
+				Copyright © 2013 <a href="http://www.jsinformatics.com">J S
 					Informatics</a> | Designed by <a href="" target="_parent">Prashanna
 					Gupta</a>
 

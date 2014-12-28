@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.js.dto.SuccessStory;
+import com.js.dto.Testimonial;
 import com.js.exception.JSIException;
 import com.js.service.SuccessStoryService;
+import com.js.service.TestimonialService;
+import com.js.utils.Constants;
 
 @Controller
 public class CommonController {
@@ -25,6 +28,17 @@ public class CommonController {
 
 	public void setSuccessStoryService(SuccessStoryService successStoryService) {
 		this.successStoryService = successStoryService;
+	}
+
+	@Autowired
+	TestimonialService testimonialService;
+	
+	public TestimonialService getTestimonialService() {
+		return testimonialService;
+	}
+
+	public void setTestimonialService(TestimonialService testimonialService) {
+		this.testimonialService = testimonialService;
 	}
 
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
@@ -52,16 +66,18 @@ public class CommonController {
 	
 	
 	@RequestMapping(value="/testimonials",method=RequestMethod.GET)
-	public ModelAndView openTestimonials(){
+	public ModelAndView openTestimonials(String testimonialId){
 		ModelAndView modelAndView = new ModelAndView("/testimonials");
-		
 		try{
-			List <SuccessStory>candidateList = new ArrayList<SuccessStory>();
-			List <SuccessStory>temp = successStoryService.gettAllCandidateOfSuccessStory();
+			List <Testimonial>candidateList = new ArrayList<Testimonial>();
+			List <Testimonial>temp = testimonialService.gettAllTestimonial();
 			if(temp!=null){
 				candidateList.addAll(temp);
 			}
 			modelAndView.addObject("candidateList", candidateList);
+			if(testimonialId!=null){
+				modelAndView.addObject("testimonialId", testimonialId);
+			}
 		}catch(Throwable th){
 			new JSIException(th).log();
 		}

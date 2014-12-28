@@ -5,11 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>J S Informatics</title>
+<title>JS Informatics</title>
 <meta name="keywords" content="glossy box, web design, colorful background, free templates, website templates, CSS, HTML" />
 <meta name="description" content="Glossy Box | free website template with a colorful background" />
 <link href="resources/templatemo_style.css" rel="stylesheet" type="text/css" />
 <link href="resources/css/jquery.ennui.contentslider.css" rel="stylesheet" type="text/css" media="screen,projection" />
+
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="resources/js/successstory.js"></script>
 
 </head>
 <body>
@@ -19,7 +22,7 @@
     
     	<div id="templatemo_header">
 			<div id="site_title">
-				<h1><a href="http://www.jsinformatis.com">J S Informatics<span>Passion to Excel</span></a></h1>
+				<h1><a href="http://www.jsinformatis.com">JS Informatics<span>Passion to Excel</span></a></h1>
 			</div> <!-- end of site_title -->
 
 				<ul id="social_box">
@@ -56,28 +59,28 @@
      <div id="templatemo_content_wrapper">
 			<div id="content">   
 				<div class="latestEvent">
-					<h4>Add new candidate in success story</h4>
-				
-					<form action="14.jsi" method="post" enctype="multipart/form-data">
+					<h4 style="float: left;">Add new candidate in success story</h4>
+					<a href="15.jsi" style="float: right;">Testimonials</a>
+					<form action="14.jsi" method="post" enctype="multipart/form-data" onsubmit="return validateAddSuccessStory();">
 						<table border="1" width="100%">
 							<tr>
 								<td>
 									Candidate Name
 								</td>
 								<td>
-									<input type="text" name="candidateName" size="15"/>
+									<input type="text" name="candidateName" size="15" id="id_candidateName"/>
 								</td>
 								<td>
 									Company Name
 								</td>
 								<td>
-									<input type="text" name="companyName" size="15"/>
+									<input type="text" name="companyName" size="15" id="id_companyName"/>
 								</td>
 								<td>
 									Year
 								</td>
 								<td>
-									<input type="text" name="year" size="15"/>
+									<input type="text" name="year" size="15" id="id_year"/>
 								</td>
 							</tr>
 							<tr>
@@ -85,19 +88,18 @@
 									College
 								</td>
 								<td>
-									<input type="text" name="college" size="15"/>
+									<input type="text" name="college" size="15" id="id_college"/>
 								</td>
 								<td>
 									Photo
 								</td>
 								<td>
-									<input type="file" name="file" />
+									<input type="file" name="file" id="id_photo" />
 								</td>
-								<td>
+								
+								<td colspan="2">
+									<input disabled="disabled" type="submit" value="Save" id="submit" style="float: right; display: block; width: 100px; height: 25px; margin: 2px; padding-top: 1px; font-size: 12px; font-weight: bold; color: #a9a9a9; text-align: center; background: url(images/templatemo_btn.png) no-repeat;"/>
 									
-								</td>
-								<td>
-									<input type="submit" value="Save"/>
 								</td>
 							</tr>
 						</table>
@@ -112,56 +114,55 @@
                 <div class="leftContent" style="width: 840px;">
                 
                 	<c:if test="${not empty candidateList}">
-                		<table border="0" style="width: 840px;">
-                		<tr>
-                		<c:forEach var="i" begin="1" end="${fn:length(candidateList)}" >
-                			
-                			<td>
-                				<table border="1" style="width: 280px;">
-                					<tr>
-                						<td colspan="2" style="width: 280px;" align="center">
-                							<a href="13.jsi?oid=<c:out value="${candidateList[i-1].oid}"/>" style="z-index: 1;float: right;vertical-align: text-top;">Delete</a>
-                						
-                							<img alt="" src="${candidateList[i-1].photoPath}" style="width: 240;height: 200px;">
-                						</td>
-                					</tr>
-                					<tr>
-                						<td style="width: 100px;">
-                							Name 
-                						</td>
-                						<td style="width: 180px;">
-                							<a href=""><c:out value="${candidateList[i-1].candidateName}"/></a>
-                						</td>
-                					</tr>
-                					<tr>
-                						<td>
-                							Company 
-                						</td>
-                						<td>
-                							<c:out value="${candidateList[i-1].companyName}"/>
-                						</td>
-                					</tr>
-                					<tr>
-                						<td>
-                							Year 
-                						</td>
-                						<td>
-                							<c:out value="${candidateList[i-1].year}"/>
-                						</td>
-                					</tr>
-                				</table>
-                			
-                			</td>
-                				
-                			<c:if test="${i%3==0}">
-                				</tr>
-                				<tr>
-                			</c:if>
-                		</c:forEach>
-                		</tr>
-                		</table>
-                	</c:if>
-                
+				<table border="0" style="width: 800px; ">
+					<tr>
+							<c:forEach var="i" begin="1" end="${fn:length(candidateList)}">
+	
+								<td style="padding:10px;">
+									<table border="0" style="width: 400px;top-margin:5px;box-shadow: 0px 0px 3px black;">
+										<tr>
+											<td colspan="2" style="width: 280px;" align="center">
+												<div class="image_wrapper image_fl" style="margin:5px;">
+													<img width="100" height="100"
+														src="${candidateList[i-1].photoPath}" alt="Profile picture" />
+												</div>
+												<table>
+													<tr>
+														<td style="width: 70px;">Name</td>
+														<td style="width: 200px;"><a href="#"><c:out
+																	value="${candidateList[i-1].candidateName}" /></a></td>
+													</tr>
+													<tr>
+														<td>Company</td>
+														<td><c:out value="${candidateList[i-1].companyName}" />
+														</td>
+													</tr>
+													<tr>
+														<td>Year</td>
+														<td><c:out value="${candidateList[i-1].year}" /></td>
+													</tr>
+												</table>
+												<div class="btn_more" style="margin-right: 10px; margin-top: 10px;"><a onclick="return myOnClick();" href="13.jsi?oid=<c:out value="${candidateList[i-1].oid}"/>" >Delete</a></div>
+												
+												<c:if test="${candidateList[i-1].testimonial==null}">
+													<div class="btn_more" style="margin-right: 120px; margin-top: 10px;"><a href="18.jsi?oid=<c:out value="${candidateList[i-1].oid}"/>" >Testimonial</a></div>
+												</c:if>
+												
+											</td>
+										</tr>
+	
+									</table>
+	
+								</td>
+	
+								<c:if test="${i%2==0}">
+					</tr>
+					<tr>
+						</c:if>
+						</c:forEach>
+					</tr>
+				</table>
+			</c:if>
                 	<br/>
                 
 					
@@ -181,7 +182,7 @@
    
 		<div id="templatemo_footer">
 		
-             Copyright Â© 2013 <a href="http://www.jsinformatics.com">J S Informatics</a> | Designed by <a href="" target="_parent">Prashanna Gupta</a>
+             Copyright © 2013 <a href="http://www.jsinformatics.com">JS Informatics</a> | Designed by <a href="" target="_parent">Prashanna Gupta</a>
 			 
        </div>
         

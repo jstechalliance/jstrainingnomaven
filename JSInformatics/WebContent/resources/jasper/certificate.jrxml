@@ -91,7 +91,7 @@
 					<textElement textAlignment="Justified" lineSpacing="1_1_2">
 					<font fontName="Times New Roman" size="14"/>
 					</textElement>
-				<text><![CDATA[Training On]]></text>
+				<text><![CDATA[Training on]]></text>
 			</staticText>
 			
 			<textField>
@@ -125,7 +125,7 @@
 					<textElement>
 						<font fontName="Times New Roman" size="14"/>
 					</textElement>
-					<text><![CDATA[For J S INFORMATICS]]></text>
+					<text><![CDATA[For JS INFORMATICS]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="10" y="80" width="270" height="40" />

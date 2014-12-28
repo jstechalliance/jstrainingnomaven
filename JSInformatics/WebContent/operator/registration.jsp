@@ -1042,10 +1042,6 @@
 						<td width="40%" align="right">Discount Detail's :</td>
 						<td width="60%"><input type="text" name="discount_detail" id="id_training_discount_detail" size="20" /></td>
 					</tr>
-					<tr>
-						<td width="40%" align="right">Certificate :</td>
-						<td width="60%" align="center"><a href="../certificate.jsi">Print</a></td>
-					</tr>
 				</table>
 				<table width="60%" border="0" align="center">
 					<tr>

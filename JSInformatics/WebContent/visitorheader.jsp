@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>J S Informatics</title>
+		<title>JS Informatics</title>
 		<meta name="keywords" content="glossy box, web design, colorful background, free templates, website templates, CSS, HTML" />
 		<meta name="description" content="Glossy Box | free website template with a colorful background" />
 		<script type="text/javascript" src="resources/js/jquery-1.6.4.min.js"></script>

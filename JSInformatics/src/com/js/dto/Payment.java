@@ -25,7 +25,8 @@ public class Payment {
 	private String approved_by;
 	private String approved_by_name;
 	private String contactNo;
-	
+	private String paymentSubmittedToId;
+	private String paymentSubmittedToName;
 	
 
 	public String getApproved_by_name() {
@@ -209,6 +210,22 @@ public class Payment {
 
 	public void setAlertDate(String alertDate) {
 		this.alertDate = alertDate;
+	}
+
+	public String getPaymentSubmittedToId() {
+		return paymentSubmittedToId;
+	}
+
+	public void setPaymentSubmittedToId(String paymentSubmittedToId) {
+		this.paymentSubmittedToId = paymentSubmittedToId;
+	}
+
+	public String getPaymentSubmittedToName() {
+		return paymentSubmittedToName;
+	}
+
+	public void setPaymentSubmittedToName(String paymentSubmittedToName) {
+		this.paymentSubmittedToName = paymentSubmittedToName;
 	}
 
 	public static enum Order implements Comparator<Payment> {

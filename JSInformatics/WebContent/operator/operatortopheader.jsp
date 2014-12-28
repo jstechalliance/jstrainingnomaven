@@ -5,6 +5,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 		<title>JS Informatics</title>
+		<link rel="icon" type="image/png" href="../resources/images/jsi.png">
 		<meta name="keywords" content="java, Android, PHP, Software, Programming,JS Informatics, JEE, Struts, Spring, Hibernate" />
 		<meta name="description" content="" />
 		<link href="../resources/templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -15,7 +16,7 @@
 		<div id="templatemo_wrapper">
     		<div id="templatemo_header">
 				<div id="site_title">
-					<h1><a href="http://www.jsinformatics.com">J S Informatics<span>Passion to Excel...</span></a></h1>
+					<h1><a href="http://www.jsinformatics.com">JS Informatics<span>Passion to Excel...</span></a></h1>
 				</div> <!-- end of site_title -->
 				
 				<ul id="social_box">
