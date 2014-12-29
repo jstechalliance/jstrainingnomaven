@@ -13,6 +13,7 @@
 <%@page import="java.util.*"%>
 <%@page import="com.js.dto.*"%>
 <%@page import="com.js.msg.*"%>
+
 <%@include file="operatortopheader.jsp"%>
 <%@include file="../common/header.jsp"%>
 
@@ -1541,7 +1542,7 @@
 									<tr>
 										<td width="40%" align="right">Full Name :</td>
 										<td width="60%"><input type="text" 
-											name="training_enquiry_reference_name"  value="<%=reference_name %>"
+											name="training_enquiry_reference_name"  value="<%=reference_name%>"
 											id="id_training_enquiry_reference_name"
 											 size="21" /> <input type="hidden"
 											name="training_enquiry_referenceId"
